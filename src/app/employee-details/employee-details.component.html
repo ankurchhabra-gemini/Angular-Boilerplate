@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+    td {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="fw-100">
+      <div class="w-100 d-flex justify-content-center head-sm">
+        <div class="fa-3x">
+          <i class="fa fa-spinner fa-spin"></i>
+        </div>
+      </div>
+    </div>
+    <table style="width: 100%">
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Address</th>
+        <th>Employee Email</th>
+        <th>Employee Ph No.</th>
+      </tr>
+      <tr *ngFor="let emp of empDetails">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>
+          {{ emp.address.suite }}, {{ emp.address.street }},
+          {{ emp.address.city }}-{{ emp.address.zipcode }}
+        </td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.phone }}</td>
+      </tr>
+    </table>
+  </body>
+</html>
