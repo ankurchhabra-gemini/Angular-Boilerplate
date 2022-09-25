@@ -7,8 +7,7 @@ import { DataServiceService } from '../shared/service/data-service.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  // logIn: boolean = false;
-  logIn = sessionStorage.getItem('token') == 'ywie2dsfhd' ? true : false;
+  logIn: boolean = false;
   constructor(public service: DataServiceService) {}
 
   ngOnInit(): void {
@@ -17,6 +16,8 @@ export class HeaderComponent implements OnInit {
       sessionStorage.getItem('token'),
       this.service.userLogin
     );
+
+    this.logIn = this.service.getToken();
   }
   /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
   openNav() {

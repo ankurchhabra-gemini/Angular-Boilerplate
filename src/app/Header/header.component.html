@@ -5,8 +5,8 @@
         class="mat-horizontal-stepper-header me-lg-auto"
         src="https://logo.clearbit.com/geminisolutions.in?size=100s"
       />
-      <button mat-icon-button>
-        <mat-icon (click)="sidenav.toggle(); openNav()">menu</mat-icon>
+      <button mat-icon-button >
+        <mat-icon (click)="sidenav.toggle(); openNav()" id="sidebtn">menu</mat-icon>
       </button>
     </div>
     <span class="menu-spacer"></span>
@@ -26,7 +26,7 @@
     </button>
   </mat-toolbar>
   <mat-sidenav-container>
-    <mat-sidenav mode="side" id="mySidenav" #sidenav>
+    <mat-sidenav mode="side" id="mySidenav" #sidenav style="background: lightgrey;">
       <mat-nav-list>
         <a mat-list-item [routerLink]="['pages/home']">
           <mat-icon>home</mat-icon> Home
@@ -34,17 +34,17 @@
         <a mat-list-item [routerLink]="['pages/employee-details']"
           ><mat-icon>person</mat-icon> Employee Details
         </a>
-        <a
+        <!-- <a
           mat-list-item
           (click)="sidenav.toggle(); closeNav()"
           href=""
           mat-list-item
           >Close</a
-        >
+        > -->
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div style="height: 100vh">
+      <div style="height: 100vh" *ngIf="logIn">
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>

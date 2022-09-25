@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 export class DataServiceService {
   userLogin: boolean = false;
   notAdminLogin: boolean = false;
-  accessAllow: boolean = false;
   userDetails: any;
   constructor(private http: HttpClient, private route: Router) {}
 
@@ -18,51 +17,43 @@ export class DataServiceService {
   }
 
   getToken() {
+    console.log(sessionStorage.getItem('token'))
     return sessionStorage.getItem('token') != null ? true : false;
   }
 
   isLoggedIn(): boolean {
-    if (this.accessAllow) {
-      return true;
-    } else {
-      return false;
-    }
-    // else {
-    //   return !!this.getToken();
-    // }
+   if(this.getToken()) {
+    return true;
+   } else {
+    return false;
+   }
   }
+
   public login(val: any, params: string) {
     // const adminData = JSON.parse(localStorage.getItem(admin));
     // sessionStorage.setItem('token', params);
     sessionStorage.setItem('username', val.name);
     sessionStorage.setItem('password', val.password);
     sessionStorage.setItem('data', JSON.stringify(val));
-    return this.accessAllow;
+    // return this.accessAllow;
   }
 
   logout() {
-    this.accessAllow = false;
-    sessionStorage.removeItem('token');
+    sessionStorage.clear();
     this.route.navigate(['login/log-out']);
   }
 
   loginAccess(val: any) {
-    const adminName = localStorage.getItem('user_name');
-    const adminPass = localStorage.getItem('password');
+    const adminName = sessionStorage.getItem('username');
+    const adminPass = sessionStorage.getItem('password');
     console.log('params', val, adminName, adminPass);
     if (val.username == adminName && val.password == adminPass) {
-      sessionStorage.setItem('token', 'adminABC123');
-      this.accessAllow = true;
-      this.userDetails = 'admin';
-    } else if (
-      val.username == sessionStorage.getItem('username') &&
-      val.password == sessionStorage.getItem('password')
-    ) {
-      sessionStorage.setItem('token', 'notAdminABC123');
-      this.accessAllow = false;
-      this.userDetails = 'notAdmin';
+      sessionStorage.setItem('token', 'ASHHSVJD QYFCDVWDHWVEWH');
+      sessionStorage.setItem('count', '1');
+      // this.accessAllow = true;
+      this.userDetails = true;
     } else {
-      this.accessAllow = false;
+      this.userDetails = false;
     }
     return this.userDetails;
   }

@@ -9,20 +9,23 @@ import {
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { DataServiceService } from '../service/data-service.service';
+import { browserRefresh } from 'src/app/app.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthguardGuard implements CanActivate {
-  constructor(private service: DataServiceService, private router: Router) {}
-  // canActivate(
-  //   route: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-  //   return true;
-  // }
+  browserRefresh;
+  constructor(private service: DataServiceService, private router: Router) {
+    this.browserRefresh = browserRefresh;
+    console.log('refreshed?:', this.browserRefresh)
+  }
   canActivate() {
+    
     if (!this.service.isLoggedIn()) {
-      // this.router.navigate(['']);
+      if(this.browserRefresh === true) {
+        sessionStorage.clear();
+      }
       Swal.fire({
         text: 'Not Authorized',
         icon: 'warning',
@@ -37,7 +40,6 @@ export class AuthguardGuard implements CanActivate {
         }
       });
     }
-
     return this.service.isLoggedIn();
   }
 }

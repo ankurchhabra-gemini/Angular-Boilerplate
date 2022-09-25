@@ -7,19 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  slides = [
-    {
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4a1cVtOXPeRvtOiglZO5AV9PC_NNm4jtl8g&usqp=CAU',
-    },
-    { image: 'https://gsr.dev/material2-carousel/assets/demo.png' },
-    { image: 'https://gsr.dev/material2-carousel/assets/demo.png' },
-  ];
+  count= sessionStorage.getItem('count')
   constructor(private route: Router) {}
 
-  ngOnInit(): void {}
-
-  routeBtn() {
-    this.route.navigate(['pages/employee-details']);
+  ngOnInit(): void {
+    console.log(this.count)
+    if(this.count == '1') {
+      document.getElementById('sidebtn')?.click();
+      sessionStorage.setItem('count','2');
+    }
+    
+    
   }
 }

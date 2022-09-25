@@ -24,6 +24,7 @@
         </div>
       </div>
     </div> -->
+    <div *ngIf="loader" class="loader"></div>
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -34,7 +35,7 @@
             <th scope="col">Employee Email</th>
             <th scope="col">Employee Ph No.</th>
           </tr>
-        </thead>
+        </thead> 
         <tbody>
           <tr *ngFor="let emp of empDetails">
             <td scope="row">{{ emp.id }}</td>

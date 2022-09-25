@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class EmployeeDetailsComponent implements OnInit {
   empDetails: any;
+  loader: boolean = true;
   constructor(private service: DataServiceService) {}
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class EmployeeDetailsComponent implements OnInit {
     await this.service.getEmployeeDetials().subscribe((res) => {
       console.log('res', res);
       this.empDetails = res;
+      this.loader = false;
     });
   }
 }

@@ -39,9 +39,7 @@ export class LoginPageComponent implements OnInit {
     const res = this.service.loginAccess(this.loginForm.value);
     this.loginForm.reset();
     console.log('res', res);
-    if (res == 'admin') {
-      this.route.navigate(['pages/employee-details']);
-    } else if (res == 'notAdmin') {
+    if (res === true) {
       this.route.navigate(['pages/home']);
     } else {
       this.service.userLogin = false;
@@ -51,7 +49,13 @@ export class LoginPageComponent implements OnInit {
         title: 'No User Found',
         text: 'Please Register',
         allowOutsideClick: false,
-      });
+      }).then((result) => {
+        console.log(result);
+        if (result.isConfirmed === true) {
+          sessionStorage.removeItem('token');
+          this.route.navigate(['/login/register']);
+        }
+      });;
     }
   }
 
