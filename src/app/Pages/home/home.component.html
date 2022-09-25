@@ -8,15 +8,14 @@
   </head>
   <body id="main">
     <!-- Slide Show -->
-    <section>
+    <section class="d-flex justify-content-center">
       <img
-        class="img"
+        class="img col-10 mt-4"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4a1cVtOXPeRvtOiglZO5AV9PC_NNm4jtl8g&usqp=CAU"
-        style="width: 80%"
       />
     </section>
-    <section class="center-container" style="max-width: 600px">
-      <h2 class="wide">About Us</h2>
+    <section class="center-container p-5 w-100">
+      <h2 class="d-flex justify-content-center wide">About Us</h2>
       <p class="opacity">
         <i
           >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta
@@ -35,6 +34,11 @@
         >
       </p>
     </section>
-    <button type="button" (click)="routeBtn()">Employee Details</button>
+    <mat-divider></mat-divider>
+    <!-- <div>
+      <button class="ml-5 btn btn-success" type="button" (click)="routeBtn()">
+        Employee Details
+      </button>
+    </div> -->
   </body>
 </html>

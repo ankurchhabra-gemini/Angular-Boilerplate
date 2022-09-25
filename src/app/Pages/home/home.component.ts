@@ -20,6 +20,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   routeBtn() {
-    this.route.navigate(['employee-details']);
+    this.route.navigate(['pages/employee-details']);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from '../shared/service/data-service.service';
+import { DataServiceService } from 'src/app/shared/service/data-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee-details',

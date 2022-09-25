@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
-    path: 'home',
-    pathMatch: 'full',
-    component: HomeComponent,
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'employee-details',
-    pathMatch: 'full',
-    component: EmployeeDetailsComponent,
+    path: 'pages',
+    loadChildren: () =>
+      import('./Pages/pages-route-routing.module').then(
+        (m) => m.PagesRouteRoutingModule
+      ),
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 

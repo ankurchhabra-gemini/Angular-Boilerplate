@@ -4,8 +4,10 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class HttpInterceptorInterceptor implements HttpInterceptor {
@@ -15,9 +17,25 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    // const cloned = request.clone({
-    //   headers: request.headers.set("")
-    // }
-    return next.handle(request);
+    const token = sessionStorage.getItem('token');
+
+    request = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return next
+      .handle(request)
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+  handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.log('Client side error message', 'Client side error');
+    } else {
+      console.log('Server side error message :', error.error.message);
+    }
+
+    return throwError(error.error);
   }
 }

@@ -1,30 +1,52 @@
-<mat-toolbar color="primary" class="d-flex justify-content-between">
-
+<div>
+  <mat-toolbar color="primary" class="d-flex justify-content-between">
+    <div>
+      <img
+        class="mat-horizontal-stepper-header me-lg-auto"
+        src="https://logo.clearbit.com/geminisolutions.in?size=100s"
+      />
       <button mat-icon-button>
-        <mat-icon (click)="sidenav.toggle();openNav()">menu</mat-icon>
+        <mat-icon (click)="sidenav.toggle(); openNav()">menu</mat-icon>
       </button>
-      <span class="menu-spacer"></span>
-      <mat-icon class="profile">account_circle</mat-icon>
-</mat-toolbar>
-    <mat-sidenav-container>
-        <mat-sidenav id="mySidenav" #sidenav>
-          <mat-nav-list>
-      
-            <a mat-list-item [routerLink]="'/accounts'"> Accounts </a>
-            <a mat-list-item [routerLink]="'/create-account'"> Create Account </a>
-            <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
-            <a mat-list-item [routerLink]="'/create-contact'"> Create Contact </a>
-            <a mat-list-item [routerLink]="'/activities'"> Activities </a>
-            <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
-            <a mat-list-item (click)="sidenav.toggle();closeNav()" href="" mat-list-item>Close</a>
-      
-          </mat-nav-list>
-        </mat-sidenav>
-        <mat-sidenav-content>
-          <div style="height: 100vh;">
-          <router-outlet></router-outlet>
-          </div>
-        </mat-sidenav-content>
-      </mat-sidenav-container>
-    
-    
+    </div>
+    <span class="menu-spacer"></span>
+    <button class="profile" mat-icon-button>
+      <mat-icon>account_circle</mat-icon>
+      <mat-select #select (selectionChange)="logout($event.value)">
+        <mat-option value="profile">
+          <mat-icon>perm_identity</mat-icon>Profile</mat-option
+        >
+        <mat-option value="setting"
+          ><mat-icon>settings</mat-icon>Setting</mat-option
+        >
+        <mat-option value="logout"
+          ><mat-icon>logout</mat-icon>Log Out</mat-option
+        >
+      </mat-select>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" id="mySidenav" #sidenav>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['pages/home']">
+          <mat-icon>home</mat-icon> Home
+        </a>
+        <a mat-list-item [routerLink]="['pages/employee-details']"
+          ><mat-icon>person</mat-icon> Employee Details
+        </a>
+        <a
+          mat-list-item
+          (click)="sidenav.toggle(); closeNav()"
+          href=""
+          mat-list-item
+          >Close</a
+        >
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 100vh">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

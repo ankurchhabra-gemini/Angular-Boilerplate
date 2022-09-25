@@ -1,4 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-toolbar.mat-primary {
+  background: #b3e2bd26;
+  color: #198754;
+}
+.profile {
+  float: right !important;
+  margin-right: 10px !important;
+}
+.mat-select {
+  display: inline;
+}
+.mat-select-panel {
+  margin-top: 35px;
+}
+.mat-select-value {
+  display: none;
+}
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}
+.wide {
+  font-weight: 900 !important;
+  font-size: 24px !important;
+}
+.ml-5 {
+  margin-left: 60px;
+}

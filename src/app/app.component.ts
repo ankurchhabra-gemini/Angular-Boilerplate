@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
+import { DataServiceService } from './shared/service/data-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,41 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Boilerplate';
-  constructor(private ActRoute: ActivatedRoute, private route: Router) {}
+  login: boolean = false;
+  constructor(
+    private ActRoute: ActivatedRoute,
+    private route: Router,
+    private service: DataServiceService
+  ) {
+    this.route.events.subscribe((event: any) => {
+      console.log('123 check', event, this.service.getToken());
+      if (event instanceof NavigationStart) {
+        if (event.url.includes('/log-in')) {
+          event.url = '/';
+        }
+        if (this.service.getToken()) {
+          this.login = true;
+        } else {
+          this.login = false;
+        }
+        console.log('what is in login', this.login);
+      }
+    });
+  }
   ngOnInit(): void {
     if (window.location.origin.includes('localhost')) {
       console.log('123');
-      this.route.navigate(['home']);
     }
+    let obj = {
+      user_name: 'abc',
+      password: 'abc@123',
+    };
+    localStorage.setItem('user_name', 'abc');
+    localStorage.setItem('password', 'abc@123');
+    localStorage.setItem('admin', JSON.stringify(obj));
+    window.onload = function () {
+      sessionStorage.removeItem('data');
+      sessionStorage.removeItem('token');
+    };
   }
 }
