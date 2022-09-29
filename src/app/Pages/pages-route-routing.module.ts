@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { HomeComponent } from './home/home.component';
 import { AuthguardGuard } from '../shared/guards/authguard.guard';
+import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,12 @@ const routes: Routes = [
     path: 'employee-details',
     pathMatch: 'full',
     component: EmployeeDetailsComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'chart',
+    pathMatch: 'full',
+    component: ChartComponent,
     canActivate: [AuthguardGuard],
   },
 ];

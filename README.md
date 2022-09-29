@@ -14,6 +14,58 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Features
+
+- Lazy loading
+- Auth guard
+- Http interceptor
+- Routing
+- Service
+- Header component
+- Left menu component
+- Not found component
+- Login component
+- Logout component
+- Register component
+
+## login component
+
+- Login-page:
+  When user run this boilerplate, they will be routed to to this login page where they have to enter "Username" and "Password". If they haven't register then, a swal pop-up will be fired and after, clicking on "Ok" button, they will be routed to register page.
+
+- Register:
+  New user has to register using "Email", "Username" and "Password".
+
+- Logout-page:
+  When a user log-out, we will redirect them to this page.
+
+## Pages component
+
+- Home:
+  After user login, they will be routed to this page.
+
+- Employee-details:
+  The employee details that we got from 'https://jsonplaceholder.typicode.com/users' API are showned here.
+
+## Not Found component
+
+If the route is not found, then users are routed to this component.
+
+## Shared
+
+- Auth Guard
+  Unauthorized user won't be able to access the particular route.
+
+- Service
+  APIs call and common functions are declared here.
+
+- Http interceptor:
+  Intercept all the request and response calls and modify them to our requirement.
+
+## Routing
+
+All routing functionality between pages/components are added here.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

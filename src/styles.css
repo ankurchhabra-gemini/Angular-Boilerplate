@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
+html{
+  scrollbar-color: black #fff;
+  height: 100%;
+}
 body {
   height: 100%;
 }
@@ -12,10 +15,58 @@ body {
   background: #b3e2bd26;
   color: #198754;
 }
+.fixed {
+  position: fixed;
+  top: 0;
+}
 .margin-bottom {
   margin-bottom: 12px;
 }
+.q1 {
+  width: 47%;
+  height: auto;
+  order: 1;
+  flex: 0 47%;
+  margin: 12px;
+  box-shadow: 2px 4px 4px 1px #dbdbdb;
+  border-radius: 8px;
+}
 
+.q2 {
+  width: 47%;
+  height: auto;
+  order: 2;
+  flex: 0 47%;
+  margin: 12px;
+    box-shadow: 2px 4px 4px 1px #dbdbdb;
+    border-radius: 8px;
+}
+
+.q3 {
+  width: 47%;
+  height: auto;
+  order: 4;
+  flex: 0 47%;
+  margin: 12px;
+    box-shadow: 2px 4px 4px 1px #dbdbdb;
+    border-radius: 8px;
+}
+
+.q4 {
+  width: 47%;
+  height: auto;
+  order: 3;
+  flex: 0 47%;
+  margin: 12px;
+  margin-bottom: 84px !important;
+    box-shadow: 2px 4px 4px 1px #dbdbdb;
+    border-radius: 8px;
+}
+
+.main {
+  display:flex;flex-wrap: wrap;width: 100%;
+  background: #dbdbdb;
+}
 .hmb {
   margin-top: 12px !important;;
 }
