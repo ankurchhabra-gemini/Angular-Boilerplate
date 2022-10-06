@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html{
+html {
   scrollbar-color: black #fff;
   height: 100%;
 }
@@ -9,7 +9,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 .mat-toolbar.mat-primary {
   background: #b3e2bd26;
@@ -38,8 +38,8 @@ body {
   order: 2;
   flex: 0 47%;
   margin: 12px;
-    box-shadow: 2px 4px 4px 1px #dbdbdb;
-    border-radius: 8px;
+  box-shadow: 2px 4px 4px 1px #dbdbdb;
+  border-radius: 8px;
 }
 
 .q3 {
@@ -48,8 +48,8 @@ body {
   order: 4;
   flex: 0 47%;
   margin: 12px;
-    box-shadow: 2px 4px 4px 1px #dbdbdb;
-    border-radius: 8px;
+  box-shadow: 2px 4px 4px 1px #dbdbdb;
+  border-radius: 8px;
 }
 
 .q4 {
@@ -59,16 +59,18 @@ body {
   flex: 0 47%;
   margin: 12px;
   margin-bottom: 84px !important;
-    box-shadow: 2px 4px 4px 1px #dbdbdb;
-    border-radius: 8px;
+  box-shadow: 2px 4px 4px 1px #dbdbdb;
+  border-radius: 8px;
 }
 
 .main {
-  display:flex;flex-wrap: wrap;width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   background: #dbdbdb;
 }
 .hmb {
-  margin-top: 12px !important;;
+  margin-top: 12px !important;
 }
 
 .border-table {
@@ -89,8 +91,12 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .profile {
   float: right !important;
@@ -115,3 +121,36 @@ body {
 .ml-5 {
   margin-left: 60px;
 }
+
+.error-msg {
+  color: red;
+  text-align: left;
+  margin-top: 2px;
+}
+
+.section-heading {
+  font-size: 30px !important;
+}
+
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+  .h-custom-2 {
+    height: 100%;
+  }
+}
+.form-outline .form-control.form-control-lg:visited ~ .form-label {
+  transform: translateY(-1.25rem) translateY(0.1rem) scale(0.8);
+}
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+ 
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';

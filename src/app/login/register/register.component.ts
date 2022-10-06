@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
   // }
 
   async register() {
+    console.log(this.registerForm)
     if (this.registerForm.valid) {
       await this.Service.login(this.registerForm.value, 'ywie2dsfhd');
       // this.Service.notAdminLogin = true;

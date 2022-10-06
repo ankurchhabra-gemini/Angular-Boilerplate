@@ -1,56 +1,93 @@
-<div class="container mt-5 border-table">
-  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="text-center mb-4">
-      <h1 class="h3 mb-3 font-weight-normal hmb">Login</h1>
-    </div>
-
-    <div class="form-label-group margin-bottom">
-      <label for="inputUsername">Enter Username</label>
-      <input
-        type="text"
-        id="inputUsername"
-        class="form-control"
-        placeholder="UserName"
-        autofocus
-        autocomplete="off"
-        formControlName="username"
-        required
-      />
-      
-      <div class="alert alert-danger mt-2" *ngIf="invalidUsername()">
-        UserName not valid
+<div class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 px-0 d-none d-sm-block">
+        <img
+          src="../../../assets/5605216.jpg"
+          alt="Login image"
+          class="w-100 vh-100"
+          style="object-fit: cover; object-position: left;"
+        />
       </div>
-    </div>
+      <div class="col-sm-6 text-black">
+        <div
+          class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 pt-5 pt-xl-0 mt-xl-n5"
+        >
+          <form
+            style="width: 23rem;"
+            [formGroup]="loginForm"
+            (ngSubmit)="login()"
+          >
+            <h3
+              class="fw-normal section-heading mb-3 pb-3"
+              style="letter-spacing: 1px;"
+            >
+              Log in
+            </h3>
 
-    <div class="form-label-group margin-bottom">
-      <label for="inputPassword">Enter Password</label>
-      <input
-        type="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Password"
-        autocomplete="off"
-        formControlName="password"
-        required
-      />
-      
-      <div class="alert alert-danger mt-2" *ngIf="invalidPassword()">
-        Password is not valid
+            <div class="form-group mb-4">
+              <label class="form-label" for="inputUsername">
+                UserName
+              </label>
+              <input
+                type="text"
+                id="inputUsername"
+                autofocus
+                autocomplete="off"
+                placeholder="Username"
+                formControlName="username"
+                required
+                class="form-control form-control-lg"
+              />
+
+              <div class="error-msg" *ngIf="invalidUsername()">
+                UserName not valid
+              </div>
+            </div>
+
+            <div class="form-group mb-4">
+              <label class="form-label" for="password">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+                formControlName="password"
+                required
+                class="form-control form-control-lg"
+              />
+
+              <div class="error-msg" *ngIf="invalidPassword()">
+                Password is not valid
+              </div>
+            </div>
+
+            <div class="pt-1 mb-4">
+              <button
+                class="btn btn-info btn-lg btn-block"
+                type="button"
+                [disabled]="isDisableLoginButton()"
+                (click)="login()"
+              >
+                Login
+              </button>
+            </div>
+
+            <!-- <p class="small mb-5 pb-lg-2">
+              <a class="text-muted" href="#!">Forgot password?</a>
+            </p> -->
+            <p>
+              Don't have an account?
+              <a href="#!" class="link-info" [routerLink]="['/login/register']">
+                Register here
+              </a>
+            </p>
+          </form>
+        </div>
       </div>
+      
     </div>
-    <button
-      class="btn btn-lg btn-primary btn-block"
-      type="submit"
-      [disabled]="isDisableLoginButton()"
-    >
-      Submit
-    </button>
-  </form>
-
-  <div class="d-flex justify-content-center">
-    <p class="text-center text-dark mt-2">
-      Create New Account
-      <a [routerLink]="['/login/register']" class="text-danger">Register</a>
-    </p>
   </div>
 </div>
