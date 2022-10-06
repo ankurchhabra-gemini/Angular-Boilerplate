@@ -13,12 +13,35 @@ import { BarChartComponent } from './chart/bar-chart/bar-chart.component';
 import { DonutChartComponent } from './chart/donut-chart/donut-chart.component';
 import { LineChartComponent } from './chart/line-chart/line-chart.component';
 import { PieChartComponent } from './chart/pie-chart/pie-chart.component';
+import { DataShairingComponent } from './data-shairing/data-shairing.component';
+import { FormsComponent } from './Forms/forms.component';
+import { ReactiveFormComponent } from './Forms/reactive-form/reactive-form.component';
+import { TemplateFormComponent } from './Forms/template-form/template-form.component';
+import { LoaderComponent } from './Loader/loader.component';
+import { PipeComponent } from './Pipe/pipe.component';
+import { ErrorHandlingComponent } from './error-handling/error-handling.component';
+import { GatewayErrorComponent } from './error-handling/gateway-error/gateway-error.component';
+import { NotFoundErrorComponent } from './error-handling/not-found-error/not-found-error.component';
+import { OtherErrorComponent } from './error-handling/other-error/other-error.component';
 
 @NgModule({
   declarations: [HomeComponent, EmployeeDetailsComponent, ChartComponent, PieChartComponent,
     DonutChartComponent,
     BarChartComponent,
-    LineChartComponent,],
+    LineChartComponent,
+    DataShairingComponent,
+    FormsComponent,
+    ReactiveFormComponent,
+    TemplateFormComponent,
+    LoaderComponent,
+    PipeComponent,
+    ErrorHandlingComponent,
+    NotFoundErrorComponent,
+    GatewayErrorComponent,
+    OtherErrorComponent
+
+
+  ],
   imports: [
     CommonModule,
     PagesRouteRoutingModule,

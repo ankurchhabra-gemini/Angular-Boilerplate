@@ -29,13 +29,28 @@
     <mat-sidenav mode="side" id="mySidenav" #sidenav style="background: #808080;">
       <mat-nav-list>
         <a mat-list-item [routerLink]="['pages/home']">
-          <mat-icon>home</mat-icon> Home
+          <mat-icon>home</mat-icon> Dashboard
         </a>
         <a mat-list-item [routerLink]="['pages/employee-details']"
           ><mat-icon>person</mat-icon> Employee Details
         </a>
         <a mat-list-item [routerLink]="['pages/chart']"
           ><mat-icon>person</mat-icon> Charts
+        </a>
+        <a mat-list-item [routerLink]="['pages/forms']"
+          ><mat-icon>person</mat-icon> Forms
+        </a>
+        <a mat-list-item [routerLink]="['pages/loader']"
+          ><mat-icon>person</mat-icon> Loader
+        </a>
+        <a mat-list-item [routerLink]="['pages/dataShairing']"
+          ><mat-icon>person</mat-icon> Data Shairing
+        </a>
+        <a mat-list-item [routerLink]="['pages/error']"
+          ><mat-icon>person</mat-icon> Error Handling
+        </a>
+        <a mat-list-item [routerLink]="['pages/pipe']"
+          ><mat-icon>person</mat-icon> Pipe
         </a>
         <!-- <a
           mat-list-item

@@ -4,6 +4,11 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { HomeComponent } from './home/home.component';
 import { AuthguardGuard } from '../shared/guards/authguard.guard';
 import { ChartComponent } from './chart/chart.component';
+import { DataShairingComponent } from './data-shairing/data-shairing.component';
+import { LoaderComponent } from './Loader/loader.component';
+import { FormsComponent } from './Forms/forms.component';
+import { PipeComponent } from './Pipe/pipe.component';
+import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,6 +28,43 @@ const routes: Routes = [
     path: 'chart',
     pathMatch: 'full',
     component: ChartComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'chart',
+    pathMatch: 'full',
+    component: ChartComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'loader',
+    pathMatch: 'full',
+    component: LoaderComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'dataShairing',
+    pathMatch: 'full',
+    component: DataShairingComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'forms',
+    pathMatch: 'full',
+    component: FormsComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'pipe',
+    pathMatch: 'full',
+    component: PipeComponent,
+    canActivate: [AuthguardGuard],
+  },
+
+  {
+    path: 'error',
+    pathMatch: 'full',
+    component: ErrorHandlingComponent,
     canActivate: [AuthguardGuard],
   },
 ];
