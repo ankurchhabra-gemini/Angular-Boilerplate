@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Header/header.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { LeftmenuComponent } from './LeftMenu/leftmenu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,6 +19,8 @@ import { LoginModule } from './login/login.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthguardGuard } from './shared/guards/authguard.guard';
 import { HttpInterceptorInterceptor } from './shared/interceptor/http-interceptor.interceptor';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { HttpInterceptorInterceptor } from './shared/interceptor/http-intercepto
     BrowserModule,
     MatToolbarModule,
     MatSidenavModule,
+    NgxSpinnerModule,
     MatListModule,
     MatButtonModule,
     MatIconModule,
@@ -39,8 +43,11 @@ import { HttpInterceptorInterceptor } from './shared/interceptor/http-intercepto
     MatSelectModule,
     FormsModule,
     PagesRouteModule,
+    NgSelectModule,
     LoginModule,
     ReactiveFormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
+
   ],
   providers: [
     AuthguardGuard,

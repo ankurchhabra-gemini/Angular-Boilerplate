@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-loader',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoaderComponent implements OnInit {
 
-  constructor() { }
+  loader : boolean = false;
+  constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+  }
+
+  fulPageLoader(){
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 5000);
+  }
+
+  componentLoader(){
+    this.loader = true;
+
+    setTimeout(() => {
+      this.loader = false;
+    }, 5000);
   }
 
 }

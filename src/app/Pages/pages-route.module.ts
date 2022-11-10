@@ -18,11 +18,15 @@ import { FormsComponent } from './Forms/forms.component';
 import { ReactiveFormComponent } from './Forms/reactive-form/reactive-form.component';
 import { TemplateFormComponent } from './Forms/template-form/template-form.component';
 import { LoaderComponent } from './Loader/loader.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { PipeComponent } from './Pipe/pipe.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 import { GatewayErrorComponent } from './error-handling/gateway-error/gateway-error.component';
 import { NotFoundErrorComponent } from './error-handling/not-found-error/not-found-error.component';
 import { OtherErrorComponent } from './error-handling/other-error/other-error.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [HomeComponent, EmployeeDetailsComponent, ChartComponent, PieChartComponent,
@@ -45,11 +49,17 @@ import { OtherErrorComponent } from './error-handling/other-error/other-error.co
   imports: [
     CommonModule,
     PagesRouteRoutingModule,
+    NgxSpinnerModule,
     MatToolbarModule,
     MatSidenavModule,
+    FormsModule,
     MatListModule,
     MatButtonModule,
+    ReactiveFormsModule,
+    NgSelectModule,
     MatIconModule,
+    NgMultiSelectDropDownModule.forRoot(),
+
   ],
 })
 export class PagesRouteModule {}

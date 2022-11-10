@@ -1,27 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 
+.card {
+  margin-bottom: 20px;
+}
+.radio-container{
+  padding-left: 30px !important;
+}
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  background-color: #17a2b8;
+}
+.mat-drawer-side{
+  z-index: 1 !important;
+}
+
 html {
   scrollbar-color: black #fff;
   height: 100%;
 }
+
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.img-header {
+  height: 40px;
+}
+
+.page-title {
+  color: #198754;
+}
+
+.side-nav {
+  background-color: rgb(209 225 213);
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+}
+
+.form-group.label {
+  margin-bottom: 5px;
+}
+
 .mat-toolbar.mat-primary {
   background: #b3e2bd26;
   color: #198754;
 }
+
 .fixed {
   position: fixed;
   top: 0;
+  width: 100%;
 }
+
 .margin-bottom {
   margin-bottom: 12px;
 }
+
 .q1 {
   width: 47%;
   height: auto;
@@ -63,12 +111,22 @@ body {
   border-radius: 8px;
 }
 
+.mat-drawer-inner-container {
+  background-color: #f3fbf5;
+}
+
+.accordion-borderless .accordion-item .accordion-button.collapsed {
+  background: #dfe7f6;
+  color: #2c58a0;
+}
+
 .main {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background: #dbdbdb;
+  background: #fff;
 }
+
 .hmb {
   margin-top: 12px !important;
 }
@@ -78,9 +136,12 @@ body {
   border-radius: 3px;
   background: lightgray;
 }
+
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -94,30 +155,38 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 .profile {
   float: right !important;
   margin-right: 10px !important;
 }
+
 .mat-select {
   display: inline;
 }
+
 .mat-select-panel {
   margin-top: 35px;
 }
+
 .mat-select-value {
   display: none;
 }
+
 .mat-button-focus-overlay {
   background-color: transparent !important;
 }
+
 .wide {
   font-weight: 900 !important;
   font-size: 24px !important;
 }
+
 .ml-5 {
   margin-left: 60px;
 }
@@ -145,12 +214,15 @@ body {
     height: 100%;
   }
 }
-.form-outline .form-control.form-control-lg:visited ~ .form-label {
+
+.form-outline .form-control.form-control-lg:visited~.form-label {
   transform: translateY(-1.25rem) translateY(0.1rem) scale(0.8);
 }
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 @import '~@fortawesome/fontawesome-free/scss/regular.scss';
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
- 
+
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
