@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
-  styleUrls: ['./reactive-form.component.css']
+  styleUrls: ['./reactive-form.component.css'],
 })
 export class ReactiveFormComponent implements OnInit {
-
-  reactiveForm! : FormGroup
-  dropdownList : any = [];
-  selectedItems : any = [];
-  dropdownSettings : IDropdownSettings = {};
-  constructor(private _fb: FormBuilder) { }
+  reactiveForm!: FormGroup;
+  dropdownList: any = [];
+  selectedItems: any = [];
+  dropdownSettings: IDropdownSettings = {};
+  @Output() reactiveFormData = new EventEmitter();
+  constructor(private _fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -22,11 +22,11 @@ export class ReactiveFormComponent implements OnInit {
       { item_id: 2, item_text: 'Bangaluru' },
       { item_id: 3, item_text: 'Pune' },
       { item_id: 4, item_text: 'Navsari' },
-      { item_id: 5, item_text: 'New Delhi' }
+      { item_id: 5, item_text: 'New Delhi' },
     ];
     this.selectedItems = [
       { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' }
+      { item_id: 4, item_text: 'Navsari' },
     ];
     this.dropdownSettings = {
       singleSelection: false,
@@ -35,26 +35,35 @@ export class ReactiveFormComponent implements OnInit {
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
-      allowSearchFilter: true
+      allowSearchFilter: true,
     };
   }
 
-  initForm(){
+  initForm() {
     this.reactiveForm = this._fb.group({
-      user : [''],
-      password: [''],
+      user: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$'),
+        ],
+      ],
       option: [null],
       radioOption: [null],
       multiSelect: [null],
-      check :[false],
-      onchecked: ['']
-    })
+      check: [false],
+      onchecked: [''],
+    });
   }
 
-  submitForm(){
+  submitForm() {
     console.log(this.reactiveForm);
-    alert("Submitted");
-    this.reactiveForm.reset();
+    console.log(this.reactiveForm.valid);
+
+    // alert("Submitted");
+    this.reactiveFormData.emit(this.reactiveForm.value);
+    // this.reactiveForm.reset();
   }
 
   onItemSelect(item: any) {
@@ -63,5 +72,4 @@ export class ReactiveFormComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
-
 }

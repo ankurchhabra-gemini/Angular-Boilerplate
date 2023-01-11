@@ -1,0 +1,18 @@
+.btn:hover {
+  color: whitesmoke;
+  cursor: pointer;
+  background-color: #17a2b8;
+}
+
+input[readonly],
+textarea[readonly] {
+  cursor: not-allowed;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}

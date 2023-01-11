@@ -7,16 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  count= sessionStorage.getItem('count')
+  count = sessionStorage.getItem('count');
   constructor(private route: Router) {}
 
   ngOnInit(): void {
-    console.log(this.count)
-    if(this.count == '1') {
+    console.log(this.count);
+    if (this.count == '1') {
       document.getElementById('sidebtn')?.click();
-      sessionStorage.setItem('count','2');
+      sessionStorage.setItem('count', '2');
     }
-    
-    
   }
 }

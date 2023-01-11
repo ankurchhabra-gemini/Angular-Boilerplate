@@ -18,12 +18,11 @@ export class AuthguardGuard implements CanActivate {
   browserRefresh;
   constructor(private service: DataServiceService, private router: Router) {
     this.browserRefresh = browserRefresh;
-    console.log('refreshed?:', this.browserRefresh)
+    console.log('refreshed?:', this.browserRefresh);
   }
   canActivate() {
-    
     if (!this.service.isLoggedIn()) {
-      if(this.browserRefresh === true) {
+      if (this.browserRefresh === true) {
         sessionStorage.clear();
       }
       Swal.fire({

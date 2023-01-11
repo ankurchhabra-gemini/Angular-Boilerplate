@@ -20,13 +20,13 @@ export class AppComponent {
       console.log('123 check', event, this.service.getToken());
       if (event instanceof NavigationStart) {
         browserRefresh = !this.route.navigated;
-        if(browserRefresh === true){
+        if (browserRefresh === true) {
           sessionStorage.clear();
         }
         if (event.url.includes('/log-in')) {
           event.url = '/';
         }
-        
+
         if (this.service.getToken()) {
           this.login = true;
         } else {

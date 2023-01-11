@@ -1,0 +1,11 @@
+.btn:hover {
+  opacity: 1 !important;
+  font-weight: bold;
+  color: whitesmoke;
+  cursor: pointer;
+  background-color: #17a2b8;
+}
+
+input[readonly] {
+  cursor: not-allowed;
+}

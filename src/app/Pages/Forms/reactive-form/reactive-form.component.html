@@ -1,31 +1,54 @@
 <form [formGroup]="reactiveForm">
   <div class="row">
-    <div class="form-group col-6">
-      <label for="username">Username</label>
+    <div class="form-group col-6 required">
+      <label for="username" class="control-label">Username</label>
       <input
         type="text"
         class="form-control"
         formControlName="user"
-        id="username"
+        id="user"
         placeholder="Enter Username"
+        autocomplete="new-password"
+        name="user"
       />
+      <span
+        *ngIf="reactiveForm.controls['user']?.touched && 
+        reactiveForm.controls['user']?.errors?.['required']"
+        class="error-msg"
+        >Username is required</span
+      >
     </div>
-    <div class="form-group col-6">
-      <label for="password">Password</label>
+    <div class="form-group col-6 required">
+      <label for="password" class="control-label">Password</label>
       <input
         type="password"
         formControlName="password"
         class="form-control"
         id="password"
         placeholder="Password"
+        autocomplete="new-password"
       />
+      <ng-container *ngIf="reactiveForm.controls['user']?.touched"
+        ><span
+          *ngIf="reactiveForm.controls['password']?.errors?.['required']"
+          class="error-msg"
+          >Password is required</span
+        >
+        <span
+          *ngIf="reactiveForm.controls['password']?.errors?.['pattern']"
+          class="error-msg"
+          >Password must be 8 characters including one letter and one number
+          only.</span
+        >
+      </ng-container>
     </div>
+
     <div class="form-group col-6">
       <label>Select option</label>
       <ng-select class="ngSelectOption l" formControlName="option">
-        <ng-option>Option 1</ng-option>
-        <ng-option>Option 2</ng-option>
-        <ng-option>Option 3</ng-option>
+        <ng-option value="option 1">Option 1</ng-option>
+        <ng-option value="option 2">Option 2</ng-option>
+        <ng-option value="option 3">Option 3</ng-option>
       </ng-select>
     </div>
     <div class="form-check col-6 radio-container">
@@ -38,12 +61,10 @@
         value="option1"
         checked
       />
-      <label class="form-check-label" for="option1">
-        Option 1
-      </label>
+      <label class="form-check-label" for="option1"> Option 1 </label>
     </div>
 
-    <div class="form-check col-6" style="padding-left: 12px;">
+    <div class="form-check col-6" style="padding-left: 12px">
       <label>Select Multiple options</label>
       <ng-multiselect-dropdown
         [placeholder]="'Select'"
@@ -55,8 +76,14 @@
         (onSelectAll)="onSelectAll($event)"
       ></ng-multiselect-dropdown>
     </div>
-    <div class="form-check  col-6" style="margin-left: 12px; margin-top: 26px;">
-      <input class="form-check-input" type="checkbox" value="" id="inputCheckbox" formControlName="check">
+    <div class="form-check col-6" style="margin-left: 12px; margin-top: 26px">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="inputCheckbox"
+        formControlName="check"
+      />
       <label class="form-check-label" for="inputCheckbox">
         Input Checkbox
       </label>

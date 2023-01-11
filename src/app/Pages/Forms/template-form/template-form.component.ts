@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
@@ -11,6 +12,8 @@ export class TemplateFormComponent implements OnInit {
   dropdownList : any = [];
   selectedItems : any = [];
   dropdownSettings : IDropdownSettings = {};
+  @Output() templateFormData = new EventEmitter();
+  @ViewChild('templateForm') templateForm!: NgForm;
   constructor() { }
   
 
@@ -39,6 +42,8 @@ export class TemplateFormComponent implements OnInit {
 
   submitForm(item: any){
     console.log(item);
+    // this.templateForm.reset();
+    this.templateFormData.emit(item);
     
   }
 

@@ -27,9 +27,23 @@ import { OtherErrorComponent } from './error-handling/other-error/other-error.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { DataDetailComponent } from './data-detail/data-detail.component';
+import { ContactComponent } from './contact/contact.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EmpSearchComponent } from './emp-search/emp-search.component';
+import { EmpFilterComponent } from './emp-filter/emp-filter.component';
+import { DisplayFormComponent } from './Forms/display-form/display-form.component';
+import { BadRequestComponent } from './error-handling/bad-request/bad-request.component';
+import { DatePipeComponent } from './Pipe/date-pipe/date-pipe.component';
+import { CurrencyPipeComponent } from './Pipe/currency-pipe/currency-pipe.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  declarations: [HomeComponent, EmployeeDetailsComponent, ChartComponent, PieChartComponent,
+  declarations: [
+    HomeComponent,
+    EmployeeDetailsComponent,
+    ChartComponent,
+    PieChartComponent,
     DonutChartComponent,
     BarChartComponent,
     LineChartComponent,
@@ -42,9 +56,15 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ErrorHandlingComponent,
     NotFoundErrorComponent,
     GatewayErrorComponent,
-    OtherErrorComponent
-
-
+    OtherErrorComponent,
+    DataDetailComponent,
+    ContactComponent,
+    EmpSearchComponent,
+    EmpFilterComponent,
+    DisplayFormComponent,
+    BadRequestComponent,
+    DatePipeComponent,
+    CurrencyPipeComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +79,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     NgSelectModule,
     MatIconModule,
     NgMultiSelectDropDownModule.forRoot(),
-
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
   ],
 })
 export class PagesRouteModule {}

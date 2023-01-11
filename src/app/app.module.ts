@@ -21,6 +21,9 @@ import { AuthguardGuard } from './shared/guards/authguard.guard';
 import { HttpInterceptorInterceptor } from './shared/interceptor/http-interceptor.interceptor';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CurrencyPipe } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -46,8 +49,9 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     NgSelectModule,
     LoginModule,
     ReactiveFormsModule,
+    ModalModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
-
+    NgxPaginationModule,
   ],
   providers: [
     AuthguardGuard,
@@ -56,6 +60,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
       useClass: HttpInterceptorInterceptor,
       multi: true,
     },
+    CurrencyPipe,
   ],
   bootstrap: [AppComponent],
 })

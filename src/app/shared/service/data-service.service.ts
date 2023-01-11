@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,23 +10,30 @@ export class DataServiceService {
   userLogin: boolean = false;
   notAdminLogin: boolean = false;
   userDetails: any;
+  contactNumberSubject = new BehaviorSubject<number>(0);
+
   constructor(private http: HttpClient, private route: Router) {}
 
-  getEmployeeDetials(): Observable<any> {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+  getEmployeeDetials(pageNo: any, itemsPerPageList: any): Observable<any> {
+    return this.http.get(
+      'https://api.instantwebtools.net/v1/passenger?page=' +
+        (pageNo - 1) +
+        '&size=' +
+        itemsPerPageList
+    );
   }
 
   getToken() {
-    console.log(sessionStorage.getItem('token'))
+    console.log(sessionStorage.getItem('token'));
     return sessionStorage.getItem('token') != null ? true : false;
   }
 
   isLoggedIn(): boolean {
-   if(this.getToken()) {
-    return true;
-   } else {
-    return false;
-   }
+    if (this.getToken()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public login(val: any, params: string) {
@@ -56,5 +63,9 @@ export class DataServiceService {
       this.userDetails = false;
     }
     return this.userDetails;
+  }
+
+  updateContactNumber(data: number) {
+    this.contactNumberSubject.next(data);
   }
 }

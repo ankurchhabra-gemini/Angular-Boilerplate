@@ -55,7 +55,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.removeItem('token');
           this.route.navigate(['/login/register']);
         }
-      });;
+      });
     }
   }
 
