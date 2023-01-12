@@ -53,8 +53,8 @@ export class BarChartComponent implements OnInit {
             enabled: false
           },
           title: {
-            text: ''
-          },
+            text: 'Number of Employees'
+        },
           gridLineWidth: 0,
           gridLineColor: '#fff',
           min: 0,
@@ -94,8 +94,8 @@ export class BarChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.chartData.push({"y":20,"color":'red'},{"y":10,"color":'red'},{"y":20,"color":'red'});
-    this.categories.push('abc','xyz','ww');
+    this.chartData.push({"y":100,"color":'blue'},{"y":300,"color":'blue'},{"y":286,"color":'blue'});
+    this.categories.push('2010','2011','2012');
     this.options1.series[0]['data'] = this.chartData;
     this.options1.xAxis.categories = this.categories;
     this.options1.series[0].showInLegend =true;

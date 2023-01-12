@@ -75,7 +75,7 @@ export class LoginPageComponent implements OnInit {
 
   isDisableLoginButton() {
     return (
-      this.loginForm.invalid || this.invalidUsername() || this.invalidPassword()
+      this.loginForm.invalid
     );
   }
 }

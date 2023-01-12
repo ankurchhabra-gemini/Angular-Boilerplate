@@ -30,11 +30,11 @@ export class DonutChartComponent implements OnInit {
         type: 'pie'
     },
     title: {
-        text: ''
+        text: 'What is your favourite ice cream flavour?'
     },
     yAxis: {
         title: {
-            text: ''
+            text: ""
         }
     },
     plotOptions: {
@@ -43,7 +43,8 @@ export class DonutChartComponent implements OnInit {
         }
     },
     tooltip: {
-      enabled: true
+      enabled: true,
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
     exporting: {
       enabled: true
@@ -67,7 +68,7 @@ export class DonutChartComponent implements OnInit {
             enabled: false
           }
         },
-        data: [["Firefox",6],["MSIE",4],["Chrome",7]],
+        data: [["Vanilla",27],["Chocolate",55],["Starwberry",18]],
         // size: '%',
         innerSize: '20%',
         showInLegend:true,

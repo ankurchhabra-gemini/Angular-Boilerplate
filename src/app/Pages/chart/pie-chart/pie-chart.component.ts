@@ -34,7 +34,7 @@ export class PieChartComponent implements OnInit {
         backgroundColor: '#FFFFFF',
     },
     title: {
-        text: ''
+        text: 'Browser Usage'
     },
     tooltip: {
       enabled: true,
@@ -64,7 +64,7 @@ export class PieChartComponent implements OnInit {
       // cursor:'default',
       // align: 'right',
       verticalAlign: 'middle',
-      x: 80,
+      x: 180,
       // y: 0,
       layout: 'vertical',
       itemMarginTop: 1, // Space between each category in the legend
@@ -130,7 +130,8 @@ export class PieChartComponent implements OnInit {
             { name: 'Safari', y: 2.50 },
             { name: 'Internet Explorer', y: 1.65 },
             { name: 'Other', y: 4.93 }
-        ]
+        ],
+        showInLegend:true,
     }]
 }
   constructor() { }

@@ -41,6 +41,9 @@ export class LineChartComponent implements OnInit {
             rangeDescription: 'Range: 2010 to 2020'
         }
     },
+    credits: {
+        enabled: false
+    },
 
     legend: {
         layout: 'vertical',

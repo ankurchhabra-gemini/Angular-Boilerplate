@@ -19,7 +19,8 @@ export class RegisterComponent implements OnInit {
     // this.createRegisterForm();
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email,
+       Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$')]],
       password: ['', Validators.required],
     });
   }
@@ -65,10 +66,7 @@ export class RegisterComponent implements OnInit {
 
   isDisableRegisterButton() {
     return (
-      this.registerForm.invalid ||
-      this.invalidPassword() ||
-      this.invalidName() ||
-      this.invalidEmail()
+      this.registerForm.invalid
     );
   }
 }

@@ -18,7 +18,7 @@ export class EmployeeDetailsComponent implements OnInit {
   page: number = 1;
   nodataFound: boolean = false;
   passDetailsReal: any = [];
-  details = [{
+  details = {
     "totalPassengers": 43,
     "totalPages": 2,
     "data": [{
@@ -472,7 +472,7 @@ export class EmployeeDetailsComponent implements OnInit {
       }],
       "__v": 0
     }]
-  }]
+  }
 
   @ViewChild(EmpSearchComponent) public empSearchComp!: EmpSearchComponent;
   searchText: string = '';
@@ -494,23 +494,21 @@ export class EmployeeDetailsComponent implements OnInit {
 
   async getEmpDetails() {
     let pageNo = this.page;
+    let data = [];
     this.loader = true;
     this.nodataFound = false;
-    this.passDetails = this.details;
-    this.passDetailsReal = { ...this.passDetails };
-    this.loader = false;
-    // await this.service
-    //   .getEmployeeDetials(pageNo, this.itemsPerPageList)
-    //   .subscribe((res) => {
-    //     this.passDetails = res;
-    //     if(res.data.length === 0) {
-    //       this.passDetails = this.details;
-    //     }
-    //     this.passDetailsReal = { ...this.passDetails };
-    //     console.log('res', this.passDetails);
-    //     this.loader = false;
-    //   }
-    //   );
+    await this.service
+      .getEmployeeDetials(pageNo, this.itemsPerPageList)
+      .subscribe((res) => {
+        this.passDetails = res;
+        if(res.data.length === 0) {
+          this.passDetails = this.details;
+        }
+        this.passDetailsReal = { ...this.passDetails };
+        console.log('res', this.passDetails);
+        this.loader = false;
+      }
+      );
   }
 
 
