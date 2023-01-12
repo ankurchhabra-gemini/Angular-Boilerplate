@@ -30,6 +30,10 @@ export class EmpFilterComponent implements OnInit {
     this.filterModalRef.hide();
   }
 
+  clear() {
+    this.filterForm.reset();
+  }
+
   openFilterTemp(filter_temp: any) {
     this.filterModalRef = this.modalService.show(filter_temp, {
       backdrop: 'static',

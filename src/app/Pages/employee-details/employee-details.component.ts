@@ -496,18 +496,21 @@ export class EmployeeDetailsComponent implements OnInit {
     let pageNo = this.page;
     this.loader = true;
     this.nodataFound = false;
-    await this.service
-      .getEmployeeDetials(pageNo, this.itemsPerPageList)
-      .subscribe((res) => {
-        this.passDetails = res;
-        if(res.data.length === 0) {
-          this.passDetails = this.details;
-        }
-        this.passDetailsReal = { ...this.passDetails };
-        console.log('res', this.passDetails);
-        this.loader = false;
-      }
-      );
+    this.passDetails = this.details;
+    this.passDetailsReal = { ...this.passDetails };
+    this.loader = false;
+    // await this.service
+    //   .getEmployeeDetials(pageNo, this.itemsPerPageList)
+    //   .subscribe((res) => {
+    //     this.passDetails = res;
+    //     if(res.data.length === 0) {
+    //       this.passDetails = this.details;
+    //     }
+    //     this.passDetailsReal = { ...this.passDetails };
+    //     console.log('res', this.passDetails);
+    //     this.loader = false;
+    //   }
+    //   );
   }
 
 

@@ -137,6 +137,11 @@ body {
   text-align: center;
 }
 
+.clear {
+  text-align: end;
+  margin-top: -50px;
+}
+
 .noData {
   font-size: 24px;
   text-align: center;
