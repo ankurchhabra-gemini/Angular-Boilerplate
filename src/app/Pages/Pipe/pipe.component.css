@@ -1,8 +1,4 @@
-.btn:hover {
-  color: whitesmoke;
-  cursor: pointer;
-  background-color: #17a2b8;
-}
+
 
 input[readonly],
 textarea[readonly] {

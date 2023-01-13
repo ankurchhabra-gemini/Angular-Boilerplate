@@ -27,8 +27,6 @@ import { OtherErrorComponent } from './error-handling/other-error/other-error.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { DataDetailComponent } from './data-detail/data-detail.component';
-import { ContactComponent } from './contact/contact.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EmpSearchComponent } from './emp-search/emp-search.component';
 import { EmpFilterComponent } from './emp-filter/emp-filter.component';
@@ -37,6 +35,14 @@ import { BadRequestComponent } from './error-handling/bad-request/bad-request.co
 import { DatePipeComponent } from './Pipe/date-pipe/date-pipe.component';
 import { CurrencyPipeComponent } from './Pipe/currency-pipe/currency-pipe.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { InputChildComponent } from './data-shairing/input-child/input-child.component';
+import { InputParentComponent } from './data-shairing/input-parent/input-parent.component';
+import { OutputChildComponent } from './data-shairing/output-child/output-child.component';
+import { OutputParentComponent } from './data-shairing/output-parent/output-parent.component';
+import { UnrelatedFirstComponent } from './data-shairing/unrelated-first/unrelated-first.component';
+import { UnrelatedSecondComponent } from './data-shairing/unrelated-second/unrelated-second.component';
+import { ViewchildChildComponent } from './data-shairing/viewchild-child/viewchild-child.component';
+import { ViewchildParentComponent } from './data-shairing/viewchild-parent/viewchild-parent.component';
 
 @NgModule({
   declarations: [
@@ -57,14 +63,22 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NotFoundErrorComponent,
     GatewayErrorComponent,
     OtherErrorComponent,
-    DataDetailComponent,
-    ContactComponent,
     EmpSearchComponent,
     EmpFilterComponent,
     DisplayFormComponent,
     BadRequestComponent,
     DatePipeComponent,
     CurrencyPipeComponent,
+    InputChildComponent,
+    InputParentComponent,
+    OutputChildComponent,
+    OutputParentComponent,
+    UnrelatedFirstComponent,
+    UnrelatedSecondComponent,
+    ViewchildChildComponent,
+    ViewchildParentComponent
+
+
   ],
   imports: [
     CommonModule,

@@ -9,10 +9,6 @@ import {
 } from '@angular/core';
 import { from, Observable, Subject } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import {
-  clearParentEventArgs,
-  DataDetailComponent,
-} from '../data-detail/data-detail.component';
 
 @Component({
   selector: 'app-data-shairing',
@@ -21,7 +17,7 @@ import {
 })
 export class DataShairingComponent implements OnInit, AfterViewInit {
   dataToChild: string = '';
-  @ViewChild(DataDetailComponent) public dataDetailComp!: DataDetailComponent;
+  // @ViewChild(DataDetailComponent) public dataDetailComp!: DataDetailComponent;
   // @ViewChild("childComp") child !: DataDetailComponent;
   // urlfromG:string = "Git hub";
   // urlfromD:string = "Dot net";
@@ -29,7 +25,7 @@ export class DataShairingComponent implements OnInit, AfterViewInit {
 
   constructor(public cd: ChangeDetectorRef, private http: HttpClient) {}
   ngAfterViewInit(): void {
-    this.dataDetailComp.msgFromParent = 'parent updated data of child';
+    // this.dataDetailComp.msgFromParent = 'parent updated data of child';
     // this.dataDetailComp.updateMsgFromParent("new msg from parent");
     this.cd.detectChanges();
   }
@@ -108,17 +104,17 @@ export class DataShairingComponent implements OnInit, AfterViewInit {
 
   // }
 
-  clearOrSetForm($event: clearParentEventArgs) {
-    if ($event.reset) {
-      this.dataToChild = '';
-    } else {
-      this.dataToChild = $event.value;
-    }
-  }
-  increase() {
-    this.dataDetailComp.addCounter();
-  }
-  decrease() {
-    this.dataDetailComp.subCounter();
-  }
+  // clearOrSetForm($event: clearParentEventArgs) {
+  //   if ($event.reset) {
+  //     this.dataToChild = '';
+  //   } else {
+  //     this.dataToChild = $event.value;
+  //   }
+  // }
+  // increase() {
+  //   this.dataDetailComp.addCounter();
+  // }
+  // decrease() {
+  //   this.dataDetailComp.subCounter();
+  // }
 }

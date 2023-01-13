@@ -69,132 +69,46 @@
     </div>
   </section>
    -->
-  
-  
-<section class="content card">
-    <div class="container-fluid">
-        <div class="row bgColor">
-            <div class="col-md-12 mt-3">
-                <h1 class="underline">From Parent to Child Using Input</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Parent Component</h3>
-                    </div>
-                    <div class="card-body" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart">
-                    
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Child Component</h3>
-                    </div>
-                    <div class="card-body row" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart col-6">
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row bgColor">
-            <div class="col-md-12 mt-3">
-                <h1 class="underline">From Child to Parent Using Output</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Child Component</h3>
-                    </div>
-                    <div class="card-body" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart">
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Parent Component</h3>
-                    </div>
-                    <div class="card-body row" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart col-6">
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row bgColor">
-            <div class="col-md-12 mt-3">
-                <h1 class="underline">From Parent to Child Using ViewChild</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Parent Component</h3>
-                    </div>
-                    <div class="card-body" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart">
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Child Component</h3>
-                    </div>
-                    <div class="card-body row" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart col-6">
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row bgColor">
-            <div class="col-md-12 mt-3">
-                <h1 class="underline">Unrelated Components</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Component A</h3>
-                    </div>
-                    <div class="card-body" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart">
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title pt-1 mb-0">Component B</h3>
-                    </div>
-                    <div class="card-body row" style="min-height: 250px; max-width: 100%;">
-                        <div class="chart col-6">
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 class="underline fw-bold">From Parent to Child Using Input</h1>
+      </div>
+      <div class="col-md-12">
+        <app-input-parent></app-input-parent>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 class="underline fw-bold">From Child to Parent Using Output</h1>
+      </div>
+      <div class="col-md-12">
+        <app-output-parent></app-output-parent>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 class="underline fw-bold">From Child to Parent Using ViewChild</h1>
+      </div>
+      <div class="col-md-12">
+        <app-viewchild-parent></app-viewchild-parent>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1 class="underline fw-bold">Unrelated Components</h1>
+      </div>
+      <div class="col-md-6">
+        <app-unrelated-first></app-unrelated-first>
+      </div>
+      <div class="col-md-6">
+        <app-unrelated-second></app-unrelated-second>
+      </div>
+    </div>
+  </div>
 </section>

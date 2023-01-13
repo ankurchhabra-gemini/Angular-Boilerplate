@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataDetailComponent } from './data-detail.component';
+import { ViewchildChildComponent } from './viewchild-child.component';
 
-describe('DataDetailComponent', () => {
-  let component: DataDetailComponent;
-  let fixture: ComponentFixture<DataDetailComponent>;
+describe('ViewchildChildComponent', () => {
+  let component: ViewchildChildComponent;
+  let fixture: ComponentFixture<ViewchildChildComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DataDetailComponent ]
+      declarations: [ ViewchildChildComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataDetailComponent);
+    fixture = TestBed.createComponent(ViewchildChildComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
