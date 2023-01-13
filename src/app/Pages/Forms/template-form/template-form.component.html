@@ -58,7 +58,7 @@
         type="radio"
         name="option1t"
         id="option1t"
-        value="option1t"
+        value="option1"
         checked
       />
       <label class="form-check-label" for="option1t"> Option 1 </label>
@@ -85,13 +85,11 @@
         id="inputCheckbox"
         ngModel
       />
-      <label class="form-check-label" for="inputCheckbox">
-        Input Checkbox
-      </label>
+      <label class="form-check-label" for="inputCheckbox"> Checkbox </label>
     </div>
 
     <div *ngIf="templateForm.value.check" class="form-group col-6">
-      <label for="onchecked">Input</label>
+      <label for="onchecked">Checkbox Value</label>
       <input
         type="text"
         name="onchecked"
@@ -104,7 +102,55 @@
   </div>
   <div class="row">
     <div class="col-md-6 mt-3">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="openFilterTemp(filterTemplate)"
+        [disabled]="!templateForm.valid"
+      >
+        Submit
+      </button>
     </div>
   </div>
 </form>
+
+<ng-template #filterTemplate let-modal>
+  <div class="modal-header">
+    <p class="modal-title h2">Template Driven Form</p>
+    <button
+      type="button"
+      class="close h4 btn-primary"
+      (click)="filterModalRef.hide()"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex">
+      <div class="col-6">
+        <label class="col-12 h5">Form Type :</label>
+        <h3>Template Driven Form</h3>
+        <label class="col-12 h5">Username :</label>
+        <h3>{{ formData.user }}</h3>
+        <label class="col-12 h5">Radio Option :</label>
+        <h3>{{ formData.option1t }}</h3>
+      </div>
+      <div class="col-6">
+        <label class="col-12 h5">Option :</label>
+        <h3>{{ formData.option }}</h3>
+        <label class="col-12 h5">Checkbox value:</label>
+        <h3>{{ formData.onchecked }}</h3>
+        <label class="col-12 h5">Multiple Options :</label>
+        <div class="m-auto" *ngFor="let data of formData?.multiSelect">
+          <span>{{ data?.item_text }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-primary" (click)="filterModalRef.hide()">
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>

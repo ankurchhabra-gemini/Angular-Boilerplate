@@ -1,21 +1,29 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-template-form',
   templateUrl: './template-form.component.html',
-  styleUrls: ['./template-form.component.css']
+  styleUrls: ['./template-form.component.css'],
 })
 export class TemplateFormComponent implements OnInit {
+  dropdownList: any = [];
+  selectedItems: any = [];
+  dropdownSettings: IDropdownSettings = {};
+  filterModalRef!: BsModalRef;
 
-  dropdownList : any = [];
-  selectedItems : any = [];
-  dropdownSettings : IDropdownSettings = {};
   @Output() templateFormData = new EventEmitter();
   @ViewChild('templateForm') templateForm!: NgForm;
-  constructor() { }
-  
+  formData: any;
+  constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {
     this.dropdownList = [
@@ -23,11 +31,11 @@ export class TemplateFormComponent implements OnInit {
       { item_id: 2, item_text: 'Bangaluru' },
       { item_id: 3, item_text: 'Pune' },
       { item_id: 4, item_text: 'Navsari' },
-      { item_id: 5, item_text: 'New Delhi' }
+      { item_id: 5, item_text: 'New Delhi' },
     ];
     this.selectedItems = [
       { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' }
+      { item_id: 4, item_text: 'Navsari' },
     ];
     this.dropdownSettings = {
       singleSelection: false,
@@ -36,15 +44,16 @@ export class TemplateFormComponent implements OnInit {
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
-      allowSearchFilter: true
+      allowSearchFilter: true,
     };
   }
 
-  submitForm(item: any){
-    console.log(item);
+  submitForm(item: any) {
+    this.formData = item;
+    console.log(this.formData, 'SS');
+
     // this.templateForm.reset();
-    this.templateFormData.emit(item);
-    
+    // this.templateFormData.emit(item);
   }
 
   onItemSelect(item: any) {
@@ -54,4 +63,10 @@ export class TemplateFormComponent implements OnInit {
     console.log(items);
   }
 
+  openFilterTemp(filter_temp: any) {
+    this.filterModalRef = this.modalService.show(filter_temp, {
+      backdrop: 'static',
+      keyboard: false,
+    });
+  }
 }

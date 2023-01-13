@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-reactive-form',
@@ -11,9 +12,12 @@ export class ReactiveFormComponent implements OnInit {
   reactiveForm!: FormGroup;
   dropdownList: any = [];
   selectedItems: any = [];
+  filterModalRef!: BsModalRef;
+  formData: any = {};
+
   dropdownSettings: IDropdownSettings = {};
   @Output() reactiveFormData = new EventEmitter();
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder, private modalService: BsModalService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -58,11 +62,13 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   submitForm() {
+    this.formData = this.reactiveForm.value;
     console.log(this.reactiveForm);
     console.log(this.reactiveForm.valid);
+    console.log(this.formData, 'SS');
 
     // alert("Submitted");
-    this.reactiveFormData.emit(this.reactiveForm.value);
+    // this.reactiveFormData.emit(this.reactiveForm.value);
     // this.reactiveForm.reset();
   }
 
@@ -71,5 +77,12 @@ export class ReactiveFormComponent implements OnInit {
   }
   onSelectAll(items: any) {
     console.log(items);
+  }
+
+  openFilterTemp(filter_temp: any) {
+    this.filterModalRef = this.modalService.show(filter_temp, {
+      backdrop: 'static',
+      keyboard: false,
+    });
   }
 }
