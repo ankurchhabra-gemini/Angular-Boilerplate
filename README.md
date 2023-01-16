@@ -20,13 +20,26 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - Auth guard
 - Http interceptor
 - Routing
-- Service
+- Common Service
 - Header component
 - Left menu component
 - Not found component
 - Login component
 - Logout component
 - Register component
+- Search Functionality
+- Filter Functionality
+- Pagination
+- Bar Chart
+- Line Chart
+- Pie Chart
+- Donut Chart
+- Reactive Form
+- Template Driven Form
+- Loaders
+- Error Handling
+- Pipes
+- Data Sharing
 
 ## login component
 
@@ -45,7 +58,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
   After user login, they will be routed to this page.
 
 - Employee-details:
-  The employee details that we got from 'https://jsonplaceholder.typicode.com/users' API are showned here.
+  The employee details that we got from 'https://api.instantwebtools.net/v1/passenger' API are showned here.
 
 ## Not Found component
 

@@ -155,12 +155,21 @@
     </div>
   </div>
 
-  <div *ngIf="nodataFound">
+
+  <!-- <div *ngIf="nodataFound">
+    <p class="noData">No Data Found</p>
+  </div> -->
+
+
+  <div *ngIf="!(passDetails.data
+  | filter : searchText)?.length">
     <p class="noData">No Data Found</p>
   </div>
 
   <!-- Pagination starts here -->
-  <div *ngIf="!nodataFound">
+  <div *ngIf="!nodataFound &&
+  (passDetails.data
+    | filter : searchText)?.length">
     <div class="d-flex justify-content-end" *ngIf="loader == false">
       <pagination-controls
         previousLabel="Prev"
