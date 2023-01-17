@@ -501,7 +501,7 @@ export class EmployeeDetailsComponent implements OnInit {
       .getEmployeeDetials(pageNo, this.itemsPerPageList)
       .subscribe((res) => {
         this.passDetails = res;
-        if(res.data.length === 0) {
+        if(res.data.length  <= 12) {
           this.passDetails = this.details;
         }
         this.passDetailsReal = { ...this.passDetails };

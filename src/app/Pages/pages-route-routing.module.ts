@@ -9,6 +9,7 @@ import { LoaderComponent } from './Loader/loader.component';
 import { FormsComponent } from './Forms/forms.component';
 import { PipeComponent } from './Pipe/pipe.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -65,6 +66,12 @@ const routes: Routes = [
     path: 'error',
     pathMatch: 'full',
     component: ErrorHandlingComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'about',
+    pathMatch: 'full',
+    component: AboutComponent,
     canActivate: [AuthguardGuard],
   },
 ];

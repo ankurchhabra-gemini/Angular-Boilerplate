@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   count = sessionStorage.getItem('count');
+  title : any ='Angular Boilerplate'
   constructor(private route: Router) {}
 
   ngOnInit(): void {

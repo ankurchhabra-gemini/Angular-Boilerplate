@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/shared/service/data-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -38,7 +39,18 @@ export class RegisterComponent implements OnInit {
       // this.Service.notAdminLogin = true;
       this.Service.userLogin = true;
       console.log('sess 1', this.Service.userLogin);
-      this.route.navigate(['login/log-in']);
+      Swal.fire({
+         text: 'Registered Successfully!',
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonText: 'OK',
+        cancelButtonText: 'No',
+         allowOutsideClick: false,
+         allowEscapeKey: false,
+         }).then(() => {
+        this.route.navigate(['login/log-in']);
+         });
+        
       this.registerForm.reset();
     }
   }

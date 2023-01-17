@@ -6,7 +6,12 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev-build": "ng build --c dev --base-href /boilerplate",
+    "uat-build": "ng build --c uat --base-href /boilerplate",
+    "preprod-build": "ng build -c preprod --base-href /boilerplate",
+    "production-build": "ng build --c production --base-href /boilerplate"
+
   },
   "private": true,
   "dependencies": {

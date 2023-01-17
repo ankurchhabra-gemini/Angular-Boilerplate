@@ -43,6 +43,7 @@ import { UnrelatedFirstComponent } from './data-shairing/unrelated-first/unrelat
 import { UnrelatedSecondComponent } from './data-shairing/unrelated-second/unrelated-second.component';
 import { ViewchildChildComponent } from './data-shairing/viewchild-child/viewchild-child.component';
 import { ViewchildParentComponent } from './data-shairing/viewchild-parent/viewchild-parent.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { ViewchildParentComponent } from './data-shairing/viewchild-parent/viewc
     UnrelatedFirstComponent,
     UnrelatedSecondComponent,
     ViewchildChildComponent,
-    ViewchildParentComponent
+    ViewchildParentComponent,
+    AboutComponent
 
 
   ],
