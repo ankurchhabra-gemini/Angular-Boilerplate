@@ -28,8 +28,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { EmpSearchComponent } from './emp-search/emp-search.component';
-import { EmpFilterComponent } from './emp-filter/emp-filter.component';
 import { DisplayFormComponent } from './Forms/display-form/display-form.component';
 import { BadRequestComponent } from './error-handling/bad-request/bad-request.component';
 import { DatePipeComponent } from './Pipe/date-pipe/date-pipe.component';
@@ -44,6 +42,8 @@ import { UnrelatedSecondComponent } from './data-shairing/unrelated-second/unrel
 import { ViewchildChildComponent } from './data-shairing/viewchild-child/viewchild-child.component';
 import { ViewchildParentComponent } from './data-shairing/viewchild-parent/viewchild-parent.component';
 import { AboutComponent } from './about/about.component';
+import { EmpSearchComponent } from './employee-details/emp-search/emp-search.component';
+import { EmpFilterComponent } from './employee-details/emp-filter/emp-filter.component';
 
 @NgModule({
   declarations: [

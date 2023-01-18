@@ -4,7 +4,7 @@ import * as moment from 'moment';
 import { EmpDetails } from 'src/app/shared/interfaces';
 import { DataServiceService } from 'src/app/shared/service/data-service.service';
 import Swal from 'sweetalert2';
-import { EmpSearchComponent } from '../emp-search/emp-search.component';
+import { EmpSearchComponent } from './emp-search/emp-search.component';
 
 @Component({
   selector: 'app-employee-details',
